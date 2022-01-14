@@ -1,17 +1,30 @@
+import 'dart:io';
 import 'dart:collection';
 library courses;
 
-var courseName;
-var courseCode;
+String? courseName;
+String? courseCode;
+// String? name = stdin.readLineSync();
+// int? n = int.parse(stdin.readLineSync()!);
 HashMap openElec = new HashMap<String, List>();
 HashMap branchElec = new HashMap<String, List>();
 
 void compute() {
-  int user;
+  // int user;
+  print("Enter the type of user 1.Admin 2.Student");
+  int? user = int.parse(stdin.readLineSync()!);
   if (user == 1) {
     //Admin
-    String yearBranch;
-    int courseType;
+    print("Enter the course type 1.Open elective 2.Branch elective");
+    int? courseType = int.parse(stdin.readLineSync()!);
+    print("Enter the year and branch");
+    String? year = stdin.readLineSync();
+    String? branch = stdin.readLineSync();
+    String? yearBranch = year+branch;
+    print("Enter the course name and code");
+    courseName = stdin.readLineSync();
+    courseCode = stdin.readLineSync();
+    // int courseType;
     if (courseType == 1) {
       openElec[yearBranch].add(courseName);
     }
@@ -22,11 +35,12 @@ void compute() {
     }
   }
   if (user == 2) {//Student
-    String branch;
-    int year;
-    String yearBranch = branch + year.toString();
+    print("Enter the year and branch");
+    String? year = stdin.readLineSync();
+    String? branch = stdin.readLineSync();
+    String? yearBranch = year+branch;
     print(openElec(yearBranch));
-    print(branchElec(yearBranch));
+    // print(branchElec(yearBranch));
   } 
   else {
     print("Wrong entry");
@@ -41,7 +55,8 @@ class BranchElective {
 class OpenElective {}
 
 void main() {
-  // var arr = new List.filled(2, 1);
+  fibonacci(6);
+  semiprime(51);
   List<int> arr = [1, 2, 3, 4, 3];
   print(sumArray(arr));
 }
